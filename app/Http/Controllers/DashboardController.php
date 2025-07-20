@@ -12,22 +12,23 @@ class DashboardController extends Controller
      */
     public function __invoke(Request $request)
     {
+        // Mengambil data user yang sedang login
         $user = Auth::user();
 
         if ($user->role === 'dosen') {
-            // Arahkan ke view dashboard dosen
-            // Anda bisa pass data yang relevan ke view dari sini
-            return view('dosen.dashboard');
+            // Arahkan ke view dashboard dosen dan kirim data dosen
+            return view('dosen.dashboard', ['dosen' => $user]);
         }
 
         if ($user->role === 'mahasiswa') {
-            // Arahkan ke view dashboard mahasiswa
-            return view('mahasiswa.dashboard');
+            // SOLUSI:
+            // Kirim variabel $user ke view dengan nama 'mahasiswa'
+            return view('mahasiswa.dashboard', ['mahasiswa' => $user]);
         }
         
         if ($user->role === 'admin') {
-            // Arahkan ke view dashboard admin
-            return view('admin.dashboard');
+            // Arahkan ke view dashboard admin dan kirim data admin
+            return view('admin.dashboard', ['admin' => $user]);
         }
 
         // Fallback jika role tidak ditemukan

@@ -38,6 +38,6 @@ class RegisterController extends Controller
         Auth::login($user);
 
         // 4. Arahkan ke dashboard
-        return redirect('/dashboard'); // Ganti dengan route dashboard Anda
+        return redirect('login'); // Ganti dengan route dashboard Anda
     }
 }
