@@ -51,7 +51,7 @@ Route::middleware('auth')->group(function () {
     // --- GRUP ROUTE UNTUK MAHASISWA ---
     Route::middleware('role:mahasiswa')->prefix('mahasiswa')->name('mahasiswa.')->group(function () {
         // Booking Bimbingan
-        Route::get('/booking', [MahasiswaBookingController::class, 'index'])->name('booking.index');
+        Route::get('/booking', [MahasiswaBookingController::class, 'index'])->name('booking');
         Route::post('/booking', [MahasiswaBookingController::class, 'store'])->name('booking.store');
         Route::get('/booking/slots', [MahasiswaBookingController::class, 'fetchAvailableSlots'])->name('booking.slots');
         
