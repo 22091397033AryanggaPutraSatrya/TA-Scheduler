@@ -11,10 +11,13 @@ export default {
     ],
     theme: {
         extend: {
-            fontFamily: {
-                sans: ['Figtree', ...defaultTheme.fontFamily.sans],
-            },
+          colors: {
+            'primary': '#07689F',    // Biru Tua
+            'secondary': '#A2D5F2', // Biru Muda
+            'base': '#FAFAFA',      // Putih Gading
+            'accent': '#FF7E67',     // Oranye/Coral
+          },
         },
-    },
+      },
     plugins: [],
 };
