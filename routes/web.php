@@ -51,12 +51,14 @@ Route::middleware('auth')->group(function () {
     // --- GRUP ROUTE UNTUK MAHASISWA ---
     Route::middleware('role:mahasiswa')->prefix('mahasiswa')->name('mahasiswa.')->group(function () {
         // Booking Bimbingan
+        // PERBAIKAN: Menghapus .index dari nama route
         Route::get('/booking', [MahasiswaBookingController::class, 'index'])->name('booking');
         Route::post('/booking', [MahasiswaBookingController::class, 'store'])->name('booking.store');
         Route::get('/booking/slots', [MahasiswaBookingController::class, 'fetchAvailableSlots'])->name('booking.slots');
         
         // Draft Tugas Akhir
-        Route::get('/draft', [MahasiswaDraftController::class, 'index'])->name('draft.index');
+        // PERBAIKAN: Menghapus .index dari nama route
+        Route::get('/draft', [MahasiswaDraftController::class, 'index'])->name('draft');
         Route::post('/draft', [MahasiswaDraftController::class, 'store'])->name('draft.store');
     });
 
